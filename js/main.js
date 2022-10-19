@@ -1,0 +1,3 @@
+let checkStringLength = function () {
+    
+  };
