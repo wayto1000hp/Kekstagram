@@ -11,6 +11,3 @@ const MAX_LENGTH = 140;
 const compareLength = (str,maxLength) => str.length < maxLength;
 compareLength('qwerty', MAX_LENGTH)
 
-let getRandomNumber = function  (numberOne, numberTwo) {
-
-}
