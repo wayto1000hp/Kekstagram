@@ -32,4 +32,5 @@ const createPhoto = (idx) => ({
 
 const arrayPhotos = Array.from({length: 25}, (_,index) => createPhoto(index));
 
+// eslint-disable-next-line no-console
 console.log(arrayPhotos);
