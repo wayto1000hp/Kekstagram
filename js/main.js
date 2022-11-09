@@ -1,5 +1,3 @@
-import {arrayPhotos} from './data.js';
-import '.thumbnail.js';
+import {getThumbnail} from './thumbnail.js';
 
-arrayPhotos();
-
+getThumbnail();
