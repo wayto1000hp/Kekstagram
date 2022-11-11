@@ -12,4 +12,6 @@ const compareLength = (str,maxLength) => str.length < maxLength;
 
 const getRandomArrayElement = (array) => array[getRandomNumber(0,array.length - 1)];
 
-export {getRandomArrayElement,compareLength,getRandomNumber};
+const isEscapeKey = (evt) => evt.key === 'Escape';
+
+export {getRandomArrayElement,compareLength,getRandomNumber,isEscapeKey};
