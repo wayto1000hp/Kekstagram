@@ -10,4 +10,4 @@ const MIN_LENGTH = 20;
 const MAX_LENGTH = 140;
 
 
-export {descriptions, MIN_LENGTH, MAX_LENGTH};
+export {descriptions, MIN_LENGTH, MAX_LENGTH,};
