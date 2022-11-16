@@ -64,8 +64,8 @@ const updateSlider = () => {
       min: currentEffect.min,
       max: currentEffect.max,
     },
-      step: currentEffect.step,
-      start: currentEffect.max,
+    step: currentEffect.step,
+    start: currentEffect.max,
   });
   if (isDefault()) {
     sliderElement.classList.add('hidden');
@@ -109,9 +109,7 @@ noUiSlider.create(sliderElement, {
 });
 updateSlider();
 
+uploadForm.addEventListener('change', onFormChange);
 sliderElement.noUiSlider.on('update', onSliderUpdate);
 
-export {
-  resetEffect,
-  onFormChange
-};
+export {resetEffect};
