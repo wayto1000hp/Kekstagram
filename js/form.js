@@ -1,5 +1,5 @@
 import {isEscapeKey} from './util.js';
-import {resetScale} from '.image-scale.js';
+import {resetScale} from './image-scale.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadFile = document.querySelector('#upload-file');
