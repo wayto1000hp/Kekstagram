@@ -1,4 +1,5 @@
 import {isEscapeKey} from './util.js';
+import {resetScale} from '.image-scale.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadFile = document.querySelector('#upload-file');
@@ -10,6 +11,7 @@ const closeModal = () => {
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onEscKeydown);
   cancelUpload.removeEventListener('click', onCancelUploadClick);
+  resetScale();
   uploadForm.reset();
   uploadFile.value = '';
 };
