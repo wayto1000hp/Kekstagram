@@ -1,12 +1,9 @@
+import { SCALE_STEP, MIN_SCALE, MAX_SCALE, DEFAULT_SCALE } from './constants.js';
+
 const scaleControlSmaller = document.querySelector('.scale__control--smaller');
 const scaleControlBigger = document.querySelector('.scale__control--bigger');
 const valueElement = document.querySelector('.scale__control--value');
 const imgUploadPreview = document.querySelector('.img-upload__preview img');
-
-const SCALE_STEP = 25;
-const MIN_SCALE = 25;
-const MAX_SCALE = 100;
-const DEFAULT_SCALE = 100;
 
 const scaleImage = (value = DEFAULT_SCALE) => {
   imgUploadPreview.style.transform = `scale(${value / 100})`;
@@ -33,8 +30,15 @@ const onBiggerButtonClick = () => {
 const resetScale = () => {
   scaleImage();
 };
-scaleControlSmaller.addEventListener('click', onSmallerButtonClick);
-scaleControlBigger.addEventListener('click', onBiggerButtonClick);
 
-export {resetScale};
+const addScaleEvent = () => {
+  scaleControlSmaller.addEventListener('click', onSmallerButtonClick);
+  scaleControlBigger.addEventListener('click', onBiggerButtonClick);
+};
+const removeScaleEvent = () => {
+  scaleControlSmaller.removeEventListener('click', onSmallerButtonClick);
+  scaleControlBigger.removeEventListener('click', onBiggerButtonClick);
+};
+
+export { addScaleEvent, removeScaleEvent, resetScale };
 

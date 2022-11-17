@@ -1,6 +1,5 @@
-import {getThumbnail} from './thumbnail.js';
-import './form.js';
-import './image-scale.js';
-import './effects.js';
+import getThumbnail from './thumbnail.js';
+import activateUploadFile from './form.js';
 
 getThumbnail();
+activateUploadFile();

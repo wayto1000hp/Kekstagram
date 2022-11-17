@@ -1,6 +1,6 @@
-import {isEscapeKey} from './util.js';
-import {resetScale} from './image-scale.js';
-import {resetEffect} from './effects.js';
+import { isEscapeKey } from './util.js';
+import { addScaleEvent, removeScaleEvent, resetScale } from './image-scale.js';
+import { resetEffect, addChangeEvent, removeChangeEvent } from './effects.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadFile = document.querySelector('#upload-file');
@@ -14,6 +14,8 @@ const closeModal = () => {
   cancelUpload.removeEventListener('click', onCancelUploadClick);
   resetScale();
   resetEffect();
+  removeScaleEvent();
+  removeChangeEvent();
   uploadForm.reset();
   uploadFile.value = '';
 };
@@ -22,6 +24,8 @@ const openModal = () => {
   document.body.classList.add('modal-open');
   document.addEventListener ('keydown', onEscKeydown);
   cancelUpload.addEventListener('click', onCancelUploadClick);
+  addScaleEvent();
+  addChangeEvent();
 };
 function onEscKeydown (evt) {
   if (isEscapeKey(evt)) {
@@ -35,6 +39,8 @@ function onCancelUploadClick () {
 const onUploadFileChange = () => {
   openModal();
 };
+const activateUploadFile = () => {uploadFile.addEventListener('change', onUploadFileChange);
+};
 
-uploadFile.addEventListener('change', onUploadFileChange);
+export default activateUploadFile;
 
