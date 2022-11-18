@@ -1,4 +1,5 @@
-import {getThumbnail} from './thumbnail.js';
-import './form.js';
+import getThumbnail from './thumbnail.js';
+import activateUploadFile from './form.js';
 
 getThumbnail();
+activateUploadFile();

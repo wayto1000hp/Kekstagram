@@ -1,4 +1,4 @@
-import {arrayPhotos} from './data.js';
+import arrayPhotos from './data.js';
 
 const getThumbnail = () => {
   const pictures = document.querySelector('.pictures');
@@ -16,4 +16,4 @@ const getThumbnail = () => {
   pictures.appendChild(picturesFragment);
 };
 
-export {getThumbnail};
+export default getThumbnail;

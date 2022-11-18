@@ -14,4 +14,4 @@ const getRandomArrayElement = (array) => array[getRandomNumber(0,array.length - 
 
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
-export {getRandomArrayElement,compareLength,getRandomNumber,isEscapeKey};
+export { getRandomArrayElement,compareLength,getRandomNumber,isEscapeKey };

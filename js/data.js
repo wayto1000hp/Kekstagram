@@ -1,5 +1,5 @@
-import {getRandomArrayElement, getRandomNumber} from './util.js';
-import {descriptions, MIN_LENGTH, MAX_LENGTH} from './constants.js';
+import { getRandomArrayElement, getRandomNumber } from './util.js';
+import { descriptions, MIN_LENGTH, MAX_LENGTH } from './constants.js';
 
 const createPhoto = (idx) => ({
   id: idx + 1,
@@ -9,5 +9,5 @@ const createPhoto = (idx) => ({
   comments: getRandomNumber(MIN_LENGTH, MAX_LENGTH),
 });
 const arrayPhotos = Array.from({length: 25}, (_,index) => createPhoto(index));
-export {arrayPhotos};
+export default arrayPhotos;
 
