@@ -12,6 +12,7 @@ const SCALE_STEP = 25;
 const MIN_SCALE = 25;
 const MAX_SCALE = 100;
 const DEFAULT_SCALE = 100;
+const ALERT_SHOW_TIME = 5000;
 
 const EFFECTS = [
   {
@@ -62,4 +63,4 @@ const EFFECTS = [
   },
 ];
 
-export { descriptions, MIN_LENGTH, MAX_LENGTH, EFFECTS, SCALE_STEP, MIN_SCALE, MAX_SCALE, DEFAULT_SCALE };
+export { descriptions, MIN_LENGTH, MAX_LENGTH, EFFECTS, SCALE_STEP, MIN_SCALE, MAX_SCALE, DEFAULT_SCALE, ALERT_SHOW_TIME };
