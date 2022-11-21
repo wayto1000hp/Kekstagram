@@ -2,6 +2,8 @@ import {isEscapeKey} from './util.js';
 
 const errorMessageTemplate = document.querySelector('#error').content.querySelector('.error');
 const successMessageTemplate = document.querySelector('#success').content.querySelector('.success');
+const successMessageElement = successMessageTemplate.cloneNode(true);
+const errorMessageElement = errorMessageTemplate.cloneNode(true);
 
 const onMessageEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
@@ -9,28 +11,30 @@ const onMessageEscKeydown = (evt) => {
     hideMessage();
   }
 };
-const onErrorButtonClick = () => {
-  hideMessage();};
+const onErrorButtonClick = () => hideMessage();
 
 const showSuccessMessage = () => {
-  const successMessageElement = successMessageTemplate.cloneNode(true);
   document.addEventListener('keydown', onMessageEscKeydown);
-  document.addEventListener('click', onErrorButtonClick);
+  successMessageElement.addEventListener('click', onErrorButtonClick);
+  successMessageElement.querySelector('.success__button').addEventListener('click', onErrorButtonClick);
   document.querySelector('body').append(successMessageElement);
 };
 
 const showErrorMessage = () => {
-  const errorMessageElement = errorMessageTemplate.cloneNode(true);
   document.addEventListener('keydown', onMessageEscKeydown);
-  errorMessageElement.querySelector('.error__button').addEventListener('click', onMessageEscKeydown);
+  errorMessageElement.addEventListener('click', onErrorButtonClick);
+  errorMessageElement.querySelector('.error__button').addEventListener('click', onErrorButtonClick);
   document.querySelector('body').append(errorMessageElement);
 };
 
 function hideMessage () {
   const messageElement = document.querySelector('.success') || document.querySelector('.error');
   messageElement.remove();
+  successMessageElement.removeEventListener('click', onErrorButtonClick);
+  errorMessageElement.removeEventListener('click', onErrorButtonClick);
   document.removeEventListener('keydown', onMessageEscKeydown);
-  document.removeEventListener('click', onErrorButtonClick);
+  errorMessageElement.querySelector('.error__button').removeEventListener('click', onErrorButtonClick);
+  successMessageElement.querySelector('.success__button').addEventListener('click', onErrorButtonClick);
 }
 
 
