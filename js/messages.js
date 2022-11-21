@@ -4,6 +4,8 @@ const errorMessageTemplate = document.querySelector('#error').content.querySelec
 const successMessageTemplate = document.querySelector('#success').content.querySelector('.success');
 const successMessageElement = successMessageTemplate.cloneNode(true);
 const errorMessageElement = errorMessageTemplate.cloneNode(true);
+const innerSuccess = document.querySelector('.success__inner');
+const innerError = document.querySelector('.error__inner');
 
 const onMessageEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
@@ -11,12 +13,24 @@ const onMessageEscKeydown = (evt) => {
     hideMessage();
   }
 };
-const onErrorButtonClick = () => hideMessage();
-
+const onErrorButtonClick = () => {errorMessageElement.addEventListener('click', (evt) => {
+  if (evt.target === innerError){
+    return;
+  }
+  hideMessage();
+});
+};
+const onSuccessButtonClick = () => {errorMessageElement.addEventListener('click', (evt) => {
+  if (evt.target === innerSuccess){
+    return;
+  }
+  hideMessage();
+});
+};
 const showSuccessMessage = () => {
   document.addEventListener('keydown', onMessageEscKeydown);
   successMessageElement.addEventListener('click', onErrorButtonClick);
-  successMessageElement.querySelector('.success__button').addEventListener('click', onErrorButtonClick);
+  successMessageElement.querySelector('.success__button').addEventListener('click', onSuccessButtonClick);
   document.querySelector('body').append(successMessageElement);
 };
 
