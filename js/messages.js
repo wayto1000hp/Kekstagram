@@ -14,7 +14,6 @@ const showMessage = (messageTemplate) => {
   const onEscKeydown = (evt) => {
     if (isEscapeKey(evt)) {
       evt.preventDefault();
-      evt.stopPropagation();
       hideMessage();
       document.removeEventListener('keydown', onEscKeydown);
     }
