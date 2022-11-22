@@ -13,6 +13,7 @@ const imgButtonSubmit = document.querySelector('.img-upload__submit');
 const closeModal = () => {
   uploadOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
+  document.removeEventListener ('keydown', onEscKeydown);
   cancelUpload.removeEventListener('click', onCancelUploadClick);
   uploadForm.removeEventListener('submit', onFormSubmit);
   resetScale();
@@ -71,7 +72,8 @@ function onFormSubmit (evt) {
       unblockSubmitButton();
     },
     () => {
-      showErrorMessage();
+      document.removeEventListener ('keydown', onEscKeydown);
+      showErrorMessage(onEscKeydown);
       unblockSubmitButton();
     },
     formData,
