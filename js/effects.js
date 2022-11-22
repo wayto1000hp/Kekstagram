@@ -1,17 +1,18 @@
-import { EFFECTS } from './constants.js';
+import { EFFECTS, DEFAULT_EFFECT } from './constants.js';
 
 const imgPreview = document.querySelector('.img-upload__preview img');
 const uploadForm = document.querySelector('.img-upload__form');
 const effectLevel = document.querySelector('.effect-level__value');
 const sliderElement = document.querySelector('.effect-level__slider');
+const sliderEffectElement = document.querySelector('.img-upload__effect-level');
 
-const DEFAULT_EFFECT = EFFECTS[0];
 let currentEffect = DEFAULT_EFFECT;
 
 const isDefault = () => currentEffect === DEFAULT_EFFECT;
 
 const updateSlider = () => {
   sliderElement.classList.remove('hidden');
+  sliderEffectElement.classList.remove('hidden');
   sliderElement.noUiSlider.updateOptions({
     range: {
       min: currentEffect.min,
@@ -22,6 +23,7 @@ const updateSlider = () => {
   });
   if (isDefault()) {
     sliderElement.classList.add('hidden');
+    sliderEffectElement.classList.add('hidden');
   }
 };
 
