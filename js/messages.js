@@ -5,7 +5,7 @@ const successMessageTemplate = document.querySelector('#success').content.queryS
 
 const showMessage = (messageTemplate) => {
   const messageElement = messageTemplate.cloneNode(true);
-  const closeButton = messageElement.querySelector('.button');
+  const closeButton = messageElement.querySelector('button');
 
   function hideMessage () {
     messageElement.remove();
@@ -15,8 +15,8 @@ const showMessage = (messageTemplate) => {
     if (isEscapeKey(evt)) {
       evt.preventDefault();
       evt.stopPropagation();
-      document.removeEventListener('keydown', onEscKeydown);
       hideMessage();
+      document.removeEventListener('keydown', onEscKeydown);
     }
   };
 
